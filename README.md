@@ -1,7 +1,4 @@
-# curriculum-databases-projects-template
-
-> PostgreSQL dataBase
-
+# PostgreSQL DATABASE
 
 ## Getting Started
 
@@ -62,16 +59,15 @@ After you're finished please remove all the comments and instructions!
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [your_project_name] <a name="about-project"></a>
-> vet_clinic is a Database about pokemons with postgreSQL 
+# 📖 [vet_clinic] <a name="about-project"></a>
+
+vet_clinic is a Database about pokemons with postgreSQL 
 
 ## 🛠 Built With <a name="built-with"></a>
 
 SQL
 
 ### Tech Stack <a name="tech-stack"></a>
-
-> Describe the tech stack and include only the relevant sections that apply to your project.
 
 <details>
   <summary>Client</summary>
@@ -225,8 +221,6 @@ Feel free to check the [issues page](../../issues/).
 
 ## ⭐️ Show your support <a name="support"></a>
 
-> Write a message to encourage readers to support your project
-
 If you like this project... Folow on github
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -234,8 +228,6 @@ If you like this project... Folow on github
 <!-- ACKNOWLEDGEMENTS -->
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
-
-> Give credit to everyone who inspired your codebase.
 
 I would like to thank... Microverse
 
