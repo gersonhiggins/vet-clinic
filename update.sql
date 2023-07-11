@@ -1,8 +1,8 @@
 ALTER TABLE animals ADD SPECIES TEXT;
-UPDATE animals SET SEPECIES = 'undefined';
+UPDATE animals SET SPECIES = 'undefined';
 UPDATE animals
-SET species = 'digimon'
+SET SPECIES = 'digimon'
 WHERE name LIKE '%mon';
 UPDATE animals
-SET species = 'pokemon'
-WHERE species IS NULL;
+SET SPECIES = 'pokemon'
+WHERE SPECIES LIKE 'undefined';
