@@ -198,3 +198,8 @@ GROUP BY species.name
 ORDER BY COUNT(*) DESC
 LIMIT 1;
 
+/* UPDATED QUERIES FOR IMPROVE TIME */
+
+SELECT visits_count FROM animals WHERE id = 4;
+SELECT * FROM visits where vet_id = 2;
+SELECT * FROM owners where email = 'owner_18327@mail.com';

@@ -1,5 +1,6 @@
 /* animals aditions */
-INSERT INTO animals (ID, NAME, DATE_OF_BIRTH, ESCAPE_ATTEMPTS, NEUTERED, WEIGHT_KG) VALUES (1, 'Agumon', '03/02/2020', 0, true, 10.23);
+INSERT INTO animals (ID, NAME, DATE_OF_BIRTH, ESCAPE_ATTEMPTS, NEUTERED, WEIGHT_KG, visit_count)
+VALUES (1, 'Agumon', '03/02/2020', 0, true, 10.23, SELECT COUNT(*) FROM visits where animal_id = 1);
 INSERT INTO animals (ID, NAME, DATE_OF_BIRTH, ESCAPE_ATTEMPTS, NEUTERED, WEIGHT_KG) VALUES (2, 'Gabumon', '15/11/2018', 2, true, 8);
 INSERT INTO animals (ID, NAME, DATE_OF_BIRTH, ESCAPE_ATTEMPTS, NEUTERED, WEIGHT_KG) VALUES (3, 'Pikachu', '07/01/2021', 1, false, 15.04);
 INSERT INTO animals (ID, NAME, DATE_OF_BIRTH, ESCAPE_ATTEMPTS, NEUTERED, WEIGHT_KG) VALUES (4, 'Devimon', '12/05/2017', 5, true, 11);
@@ -82,3 +83,19 @@ VALUES
     (9, 2, '2020-08-03'), -- Boarmon visited Maisy Smith on Aug 3rd, 2020
     (10, 3, '2020-05-24'), -- Blossom visited Stephanie Mendez on May 24th, 2020
     (10, 1, '2021-01-11'); -- Blossom visited William Tatcher on Jan 11th, 2021
+
+-- Add an email column to your owners table
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+-- This will add 3.594.280 visits considering you have 10 animals, 4 vets, and it will use around ~87.000 timestamps (~4min approx.)
+INSERT INTO visits (animal_id, vet_id, date_of_visit) SELECT * FROM (SELECT id FROM animals) animal_ids, (SELECT id FROM vets) vets_ids, generate_series('1980-01-01'::timestamp, '2021-01-01', '4 hours') visit_timestamp;
+
+-- This will add 2.500.000 owners with full_name = 'Owner <X>' and email = 'owner_<X>@email.com' (~2min approx.)
+insert into owners (full_name, email) select 'Owner ' || generate_series(1,2500000), 'owner_' || generate_series(1,2500000) || '@mail.com';
+
+/* ---- UPADE ANIMALS TO IMPROVE TIME ---- */
+UPDATE animals AS a
+SET visits_count = (SELECT COUNT(*) FROM visits AS v WHERE v.animal_id = a.ID);
+
+/* IMPROVE SEARCH BY ADDING INDEX */
+CREATE INDEX idx_visits_vet_id ON visits (vet_id);
+CREATE INDEX idx_owners_email ON owners (email);

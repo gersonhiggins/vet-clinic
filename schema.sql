@@ -6,7 +6,8 @@ CREATE TABLE animals (
     NEUTERED           BOOLEAN NOT NULL,
     WEIGHT_KG          DECIMAL NOT NULL,
     species_id INTEGER REFERENCES species(id),
-    owner_id   INTEGER REFERENCES owners(id)
+    owner_id   INTEGER REFERENCES owners(id),
+    visits_count INT,
 );
 CREATE TABLE owners (
     id SERIAL PRIMARY KEY  NOT NULL,
@@ -21,7 +22,8 @@ CREATE TABLE vets (
     id                  SERIAL PRIMARY KEY,
     name                TEXT,
     age                 INTEGER,
-    date_of_graduation  DATE
+    date_of_graduation  DATE,
+    animal_visits INT
 );
 CREATE TABLE specializations (
     vet_id     INTEGER REFERENCES vets(id),
@@ -32,5 +34,4 @@ CREATE TABLE visits (
     animal_id     INTEGER REFERENCES animals(id),
     vet_id        INTEGER REFERENCES vets(id),
     visit_date    DATE,
-    PRIMARY KEY (animal_id, vet_id, visit_date)
 );
