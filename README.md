@@ -88,7 +88,7 @@ Query and Insert
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> N/A
+> https://drawsql.app/teams/gerson-higgins-team/diagrams/vet-clinic/embed
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -182,6 +182,9 @@ Example:
 
 - GitHub: [@gersonhiggins](https://github.com/gersonhiggins)
 
+👤 **Alejandro Muñoz**
+
+-GitHub [@astroboyRoloaded](https://github.com/astroboyReloaded)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
